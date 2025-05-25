@@ -1,15 +1,12 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.Map;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
@@ -28,14 +25,6 @@ public class RegistrationTest extends TestBase {
         Attach.browserConsoleLogs();
         Attach.getVideoUrl();
         Attach.addVideo();
-
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
     }
 
     @Test
