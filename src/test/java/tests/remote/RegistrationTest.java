@@ -24,6 +24,7 @@ public class RegistrationTest extends TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
+        Attach.getVideoUrl();
         Attach.addVideo();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
