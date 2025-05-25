@@ -1,7 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -12,15 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 //@Tag("HomeWork")
-public class RegistrationTest  {
-
-    @BeforeAll
-    public static void beforeAll() {
-        Configuration.browserSize = "2560x1440";
-//        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.headless = false;
-    }
+public class RegistrationTest {
 
     @Test
     @Tag("HomeWork")
