@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 //@Tag("HomeWork")
-public class RegistrationTest {
+public class RegistrationTest extends TestBase {
 
     @Test
     @Tag("HomeWork")
@@ -35,7 +35,6 @@ public class RegistrationTest {
             $(".react-datepicker__day--030:not(.react-datepicker__day--outside-month)").click();
             $("#subjectsInput").setValue("Math").pressEnter();
             $("#hobbiesWrapper").$(byText("Sports")).click();
-            $("#uploadPicture").uploadFromClasspath("img/1.png");
             $("#currentAddress").setValue("Some address 1");
             $("#state").click();
             $("#stateCity-wrapper").$(byText("NCR")).click();
