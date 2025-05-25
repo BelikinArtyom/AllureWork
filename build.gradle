@@ -14,16 +14,12 @@ allure {
                 adapterVersion.set("2.29.1")
             }
         }
-
     }
-
 }
 
 repositories {
     mavenCentral()
 }
-
-
 
 dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-devtools-v136', version: '4.32.0'
