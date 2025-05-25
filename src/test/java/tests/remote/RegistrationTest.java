@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-//@Tag("HomeWork")
 public class RegistrationTest extends TestBase {
 
     @Test
