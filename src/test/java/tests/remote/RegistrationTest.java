@@ -1,5 +1,7 @@
 package tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +16,8 @@ public class RegistrationTest extends TestBase {
     @Test
     @Tag("HomeWork")
     void successfulRegistrationTest() {
+
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Open form", () ->  {
             open("/automation-practice-form");
