@@ -9,10 +9,11 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-@Tag("HomeWork")
+//@Tag("HomeWork")
 public class RegistrationTest extends TestBase {
 
     @Test
+    @Tag("HomeWork")
     void successfulRegistrationTest() {
 
         step("Open form", () ->  {
