@@ -8,13 +8,11 @@ import static com.codeborne.selenide.Configuration.browser;
 public class SystemPropertiesTests {
 
     @Test
-    @Tag("property")
     void systemPropertiesTest1() {
         String browser = System.getProperty("browser");
         System.out.println(browser);
     }
     @Test
-    @Tag("property")
     void systemPropertiesTest2() {
         System.setProperty("browser", "chrome");
         String browser = System.getProperty("browser");
@@ -22,14 +20,12 @@ public class SystemPropertiesTests {
     }
 
     @Test
-    @Tag("property")
     void systemPropertiesTest3() {
         String browser =  System.getProperty("browser", "mozilla");
         System.out.println(browser);
     }
 
     @Test
-    @Tag("property")
     void systemPropertiesTest4() {
         System.setProperty("browser", "chrome");
         String browser =  System.getProperty("browser", "mozilla");
