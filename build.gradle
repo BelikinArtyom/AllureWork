@@ -48,6 +48,8 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     useJUnitPlatform()
 
+    systemProperties(System.getProperties())
+
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
@@ -65,5 +67,14 @@ task homework_test(type: Test) {
 task rando_tests(type: Test) {
     useJUnitPlatform {
         includeTags("simple")
+    }
+
+    task prop_tests(type: Test) {
+        useJUnitPlatform {
+            includeTags("property")
+
+            // gradle prop_tests -Dbrowser=opera
+
+        }
     }
 }
