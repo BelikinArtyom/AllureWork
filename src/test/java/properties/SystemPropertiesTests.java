@@ -46,9 +46,6 @@ public class SystemPropertiesTests {
         String name =  System.getProperty("name", "default person");
         String message = format("Hello %s!", name);
         System.out.println(message);
-
-        // gradle hello_tests -Dname="Alex Egorov"
-
     }
 
 

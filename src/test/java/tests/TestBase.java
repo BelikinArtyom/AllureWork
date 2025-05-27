@@ -18,6 +18,18 @@ public class TestBase {
         Configuration.headless = false;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
+        String browser = System.getProperty("browser", "chrome");
+        String browserVersion = System.getProperty("browserVersion", "");
+
+        Configuration.browser = browser;
+        if (!browserVersion.isEmpty()) {
+            Configuration.browserVersion = browserVersion;
+        }
+
+        // Если используется удалённый WebDriver (например, Selenoid)
+        Configuration.remote = System.getProperty("remoteUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.browserSize = "1920x1080";
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
