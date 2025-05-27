@@ -74,4 +74,10 @@ task rando_tests(type: Test) {
             includeTags("property")
         }
     }
+
+    task hello_test(type: Test) {
+        useJUnitPlatform {
+            includeTags("hello")
+        }
+    }
 }
