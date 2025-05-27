@@ -61,3 +61,9 @@ task homework_test(type: Test) {
         includeTags("HomeWork")
     }
 }
+
+task rando_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("simple")
+    }
+}
