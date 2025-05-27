@@ -72,9 +72,6 @@ task rando_tests(type: Test) {
     task prop_tests(type: Test) {
         useJUnitPlatform {
             includeTags("property")
-
-            // gradle prop_tests -Dbrowser=opera
-
         }
     }
 }
