@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class TestBase  {
     protected static WebDriver driver;
 
     @BeforeAll
-    public static void beforeAll() {
+    public static void beforeAll() throws MalformedURLException {
         Configuration.browserSize = "2560x1440";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
