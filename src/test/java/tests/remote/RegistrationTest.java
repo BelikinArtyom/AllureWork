@@ -1,13 +1,18 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+
+import java.util.Map;
+import java.util.UUID;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
@@ -17,6 +22,24 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 
 public class RegistrationTest extends TestBase {
+
+    private static final String SELENOID_URL = System.getProperty("selenoid.url");
+    private static final String SELENOID_LOGIN = System.getProperty("selenoid.login");;
+    private static final String SELENOID_PASSWORD = System.getProperty("selenoid.password");
+
+    @BeforeEach
+    public void beforeEach() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true,
+                "name", "Test: " + UUID.randomUUID()
+        ));
+        Configuration.remote = "https://" + SELENOID_LOGIN + ":" + SELENOID_PASSWORD + "@" + SELENOID_URL + "/wd/hub";
+        Configuration.browserCapabilities = capabilities;
+        Configuration.holdBrowserOpen = false;
+    }
 
     @AfterEach
      void Attach() {
@@ -71,4 +94,5 @@ public class RegistrationTest extends TestBase {
                     text("alex@egorov.com"), text("1234567890"));
         });
     }
+
 }
