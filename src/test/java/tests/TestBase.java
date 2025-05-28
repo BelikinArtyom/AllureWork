@@ -28,31 +28,23 @@ public class TestBase  {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.headless = false;
-//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
         String selenoidUrl = System.getProperty("selenoidUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+        capabilities.setBrowserName("chrome"); // ОБЯЗАТЕЛЬНО указать browserName
+        capabilities.setVersion("120.0");      // или оставить пустым, если неважно
+        capabilities.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,
                 "enableVideo", true,
                 "name", "Test: " + UUID.randomUUID()
         ));
-        Configuration.remote = "https://" + SELENOID_LOGIN + ":" + SELENOID_PASSWORD + "@" + SELENOID_URL + "/wd/hub";
+
+        Configuration.remote = selenoidUrl; // достаточно только этого
         Configuration.browserCapabilities = capabilities;
         Configuration.holdBrowserOpen = false;
 
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-
-
-        Configuration.browserCapabilities = capabilities;
-
-
-        Configuration.remote = "https://" + SELENOID_LOGIN + ":" + SELENOID_PASSWORD + "@" + SELENOID_URL + "/wd/hub";
-        driver = new RemoteWebDriver(new URL(selenoidUrl), capabilities);
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
     }
 }

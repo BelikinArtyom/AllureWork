@@ -18,10 +18,6 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 public class RegistrationTest extends TestBase {
 
-
-
-
-
     @AfterEach
      void Attach() {
         Attach.screenshotAs("Last screenshot");
