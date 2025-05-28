@@ -6,6 +6,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 
 import static com.codeborne.selenide.Condition.appear;
@@ -18,9 +19,11 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 public class RegistrationTest extends TestBase {
 
 
+
+
+
     @AfterEach
      void Attach() {
-
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
@@ -33,6 +36,7 @@ public class RegistrationTest extends TestBase {
     void successfulRegistrationTest() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
+
 
         step("Open form", () ->  {
             open("/automation-practice-form");
