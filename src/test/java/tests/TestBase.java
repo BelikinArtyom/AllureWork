@@ -12,7 +12,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 
+
 public class TestBase  {
+
+    private static final String SELENOID_URL = System.getProperty("selenoid.url");
+    private static final String SELENOID_LOGIN = System.getProperty("selenoid.login");;
+    private static final String SELENOID_PASSWORD = System.getProperty("selenoid.password");
 
     protected static WebDriver driver;
 
@@ -31,7 +36,9 @@ public class TestBase  {
                 "enableVNC", true,
                 "enableVideo", true
         ));
+
         Configuration.browserCapabilities = capabilities;
+        Configuration.remote = "https://" + SELENOID_LOGIN + ":" + SELENOID_PASSWORD + "@" + SELENOID_URL + "/wd/hub";
 
         driver = new RemoteWebDriver(new URL(selenoidUrl), capabilities);
 
